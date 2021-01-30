@@ -1,0 +1,1 @@
+from .contacts_data import ContactJSC

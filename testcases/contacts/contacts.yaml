@@ -1,0 +1,17 @@
+create_contacts:
+  - userid: c0001
+    name: "Howard Wu"
+    department: [1]
+    mobile: "86 18500000002"
+  - userid: c0002
+    name: "Jack Ma"
+    department: [ 1 ]
+    mobile: "86 18500000003"
+  - userid: c0003
+    name: "Angela Lee"
+    department: [ 1 ]
+    mobile: "86 18500000004"
+
+delete_contacts:
+  - c0003
+  - c0002
