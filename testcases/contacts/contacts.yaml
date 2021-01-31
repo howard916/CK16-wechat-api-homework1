@@ -1,7 +1,7 @@
 create_contacts:
   - userid: c0001
     name: "Howard Wu"
-    department: [1]
+    department: [ 1 ]
     mobile: "86 18500000002"
   - userid: c0002
     name: "Jack Ma"
@@ -12,6 +12,16 @@ create_contacts:
     department: [ 1 ]
     mobile: "86 18500000004"
 
+mock_delete_contacts:
+  - userid: d0001
+    name: "Howard Delete"
+    department: [ 1 ]
+    mobile: "86 18600000002"
+  - userid: d0002
+    name: "Jack Delete"
+    department: [ 1 ]
+    mobile: "86 18600000003"
+
 delete_contacts:
-  - c0003
-  - c0002
+  - d0001
+  - d0002

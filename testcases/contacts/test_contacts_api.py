@@ -22,11 +22,20 @@ class TestContacts:
     @story("创建联系人")
     @pytest.mark.parametrize('contact_info', test_data['create_contacts'])
     def test_create_contact(self, contact_info):
-        res = self.api.create_contact(contact_info)
-        assert res == {"errcode": 0, "errmsg": "created"}
+        self.api.create_contact(contact_info)
+        try:
+            res = self.api.find_contact(contact_info['userid'])
+
+        finally:
+            # 数据清理
+            self.api.delete_contact(contact_info['userid'])
+
+        assert res['name'] == contact_info['name']
 
     @story("删除联系人")
     @pytest.mark.parametrize('user_id', test_data['delete_contacts'])
-    def test_delete_contact(self, user_id):
+    def test_delete_contact(self, user_id, mock_users):
+        # mock_users为fixture方法, 用于创建临时账号用于删除
+        mock_users(test_data['mock_delete_contacts'])
         res = self.api.delete_contact(user_id)
         assert res == {"errcode": 0, "errmsg": "deleted"}
