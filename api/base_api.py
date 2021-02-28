@@ -20,15 +20,6 @@ class BaseAPI:
     def send(self, method, url, **kwargs):
         return self.session.request(method, url, timeout=60, **kwargs)
 
-    def data_file_name(self):
-        server_type = cf.get('server', 'server_type')
-        if server_type == '1':
-            return 'data_uso.yaml'
-        elif server_type == '2':
-            return 'data_usd.yaml'
-        else:
-            return 'data_aliy.yaml'
-
     def access_token(self):
         url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken"
         params = {
